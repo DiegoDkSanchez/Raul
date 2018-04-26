@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatosPage } from '../datos/datos';
 
+/**
+ * Generated class for the RecepcionistaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-list',
-  templateUrl: 'list.html'
+  selector: 'page-recepcionista',
+  templateUrl: 'recepcionista.html',
 })
-export class ListPage {
+export class RecepcionistaPage {
   selectedItem: any;
   nombres: string[];
   items: Array<{title: string}>;
@@ -17,9 +25,8 @@ export class ListPage {
 
     // Let's populate this page with some filler content for funzies
     this.nombres = [
-      'Dr. Orellana Argueta',
-      'Dr. Ramirez Alfaro', 
-      'Dr. Josefa Rodriguez',
+      'Rosa Maria Guevara',
+      'Josue Rodriguez Serbante', 
     ];
 
     this.items = [];
@@ -36,4 +43,5 @@ export class ListPage {
       item: item
     });
   }
+
 }
