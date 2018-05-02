@@ -17,17 +17,21 @@ import { UnaConsultaPage } from '../una-consulta/una-consulta';
 export class ConsultasPage {
 
   itemImportado: any;
-  fechas: string[];
+  fechas
+  //fechas: string[];
   items: Array<{title: string, nombre: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.itemImportado = navParams.get('item');
-    this.fechas=[
+    if(this.itemImportado != null){
+      this.fechas = this.itemImportado.consulta;
+    }
+    /*this.fechas=[
       '15/02/18',
       '03/02/18',
       '23/12/17',
       '10/11/17'
-    ];
+    ];*/
 
     this.items = [];
     for(let i = 0;i < this.fechas.length; i++){
@@ -45,7 +49,7 @@ export class ConsultasPage {
     
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(UnaConsultaPage, {
-      item: item
+      item: this.itemImportado
     });
   }
 
