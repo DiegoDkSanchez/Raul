@@ -16,11 +16,9 @@
 <ion-content padding>
 <p>Consultas</p>
       <ion-list>
-          <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-            {{item.title}}
-            <div class="item-note" item-end>
-              {{item.note}}
-            </div>
+          <button ion-item *ngFor="let item of fechas" (click)="itemTapped($event, item)">
+            {{item.fecha}}
+            
           </button>
         </ion-list>
 
