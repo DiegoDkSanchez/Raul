@@ -6,16 +6,27 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{selectedItem.title}}</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>{{selectedItem.nombre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <div *ngIf="selectedItem" padding>
-        You navigated here from <b>{{selectedItem.title}}</b>
-      </div>
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+  Nombre:
+  <ion-card-title>{{selectedItem.nombre}}</ion-card-title>
+  <p>{{selectedItem.subtitulo}}</p>
 
+  Telefono:
+  <ion-card-title>{{selectedItem.telefono}}</ion-card-title>
+
+  Direccion:
+<ion-card-title>{{selectedItem.direccion}}</ion-card-title>
+
+</ion-card-content>
+</ion-card>
 </ion-content>
+

@@ -6,20 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{itemImportado.title}}</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>{{itemImportado.nombre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  Telefono:
+  <h3>{{itemImportado.telefono}}</h3>
+  
+  Direccion:
+  <h3>{{itemImportado.direccion}}</h3>
+
+  <button ion-button (click)="addConsulta()" color="secondary" full>Agregar Consulta</button>
+
 <p>Consultas</p>
       <ion-list>
-          <button ion-item *ngFor="let item of fechas" (click)="itemTapped($event, item)">
+          <button ion-item *ngFor="let item of fechas" (click)="itemTapped(item)">
             {{item.fecha}}
-            
           </button>
         </ion-list>
-
+    
 </ion-content>
