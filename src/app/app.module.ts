@@ -10,6 +10,8 @@ import { RecepcionistaPage } from '../pages/recepcionista/recepcionista';
 import { ConsultasPage } from '../pages/consultas/consultas';
 import { DatosPage } from '../pages/datos/datos';
 import { UnaConsultaPage } from '../pages/una-consulta/una-consulta';
+import { AddPacientePage } from '../pages/add-paciente/add-paciente';
+import { AddConsultaPage } from '../pages/add-consulta/add-consulta';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +28,9 @@ import {HttpClientModule} from '@angular/common/http';
     RecepcionistaPage,
     ConsultasPage,
     DatosPage,
-    UnaConsultaPage
+    UnaConsultaPage,
+    AddConsultaPage,
+    AddPacientePage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import {HttpClientModule} from '@angular/common/http';
     RecepcionistaPage,
     ConsultasPage,
     DatosPage,
-    UnaConsultaPage
+    UnaConsultaPage,
+    AddPacientePage,
+    AddConsultaPage
   ],
   providers: [
     StatusBar,

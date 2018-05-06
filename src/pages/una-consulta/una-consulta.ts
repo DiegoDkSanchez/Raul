@@ -16,15 +16,15 @@ import { DatosPage } from '../datos/datos';
 })
 export class UnaConsultaPage {
 
-  itemImportado: any;
+  itemImportado
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.itemImportado = navParams.get('item');
 
   }
 
-  itemTapped(event, item) {
-    item.title = this.itemImportado.nombre;
+  itemTapped(item) {
+    item = this.itemImportado.doctor;
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(DatosPage, {
       item: item

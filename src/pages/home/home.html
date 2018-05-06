@@ -1,9 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle ion-button>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Pacientes</ion-title>
+    <ion-buttons end>
+    <button ion-plus ion-button (click)="addPaciente()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
   </ion-navbar>
 </ion-header>
 

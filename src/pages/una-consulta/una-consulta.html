@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Fecha: {{itemImportado.title}}</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Fecha: {{itemImportado.fecha}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,8 +17,9 @@
 
 <ion-card>
   <ion-card-header>
-    <button ion-item (click)="itemTapped($event, itemImportado)">
-        {{itemImportado.nombre}}
+    Doctor:
+    <button ion-item (click)="itemTapped(itemImportado)">
+        {{itemImportado.doctor.nombre}}
     </button>
   </ion-card-header>
   <ion-card-content>

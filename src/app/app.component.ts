@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EnfermerasPage } from '../pages/enfermeras/enfermeras';
 import { RecepcionistaPage } from '../pages/recepcionista/recepcionista';
+import { AddPacientePage } from '../pages/add-paciente/add-paciente';
+import { AddConsultaPage } from '../pages/add-consulta/add-consulta';
 
 @Component({
   templateUrl: 'app.html'
