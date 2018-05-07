@@ -29,6 +29,7 @@ export class ConsultasPage {
   itemImportado
   fechas
   id
+  paciente
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -38,6 +39,7 @@ export class ConsultasPage {
          {
     this.itemImportado = navParams.get('item');
     this.id = this.itemImportado.id;
+    this.paciente = this.itemImportado
     if(this.itemImportado != null){
       this.fechas = this.itemImportado.consulta;
     }
@@ -51,7 +53,9 @@ export class ConsultasPage {
   }
 
   addConsulta(){
-    this.navCtrl.push(AddConsultaPage);
+    this.navCtrl.push(AddConsultaPage, {
+      item: this.paciente
+    });
   }
 
   presentConfirm() {

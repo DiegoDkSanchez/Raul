@@ -12,22 +12,28 @@
 
 </ion-header>
 <ion-content padding>
+  <ion-item>
+    <ion-label fixed>Doctor</ion-label>
+    <ion-select [(ngModel)]="SelDoctores">
+      <ion-option *ngFor="let item of Doctores" value="{{item.id}}">{{item.nombre}}</ion-option>
+    </ion-select>
+  </ion-item>
 
   <ion-item>
     <ion-label color="secondary" floating>Fecha</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>
   </ion-item>
 
   <ion-item>
     <ion-label color="secondary" floating>Diagnostico</ion-label>
-    <ion-textarea></ion-textarea>
+    <ion-textarea [(ngModel)]="diagnostico"></ion-textarea>
   </ion-item>
 
   <ion-item>
     <ion-label color="secondary" floating>Receta</ion-label>
-    <ion-textarea></ion-textarea>
+    <ion-textarea [(ngModel)]="receta"></ion-textarea>
   </ion-item>
 
 <br>
-  <button ion-button color="secondary" full>Agregar Consulta</button>
+  <button ion-button color="secondary" (click)="agregarConsulta()" full>Agregar Consulta</button>
 </ion-content>
