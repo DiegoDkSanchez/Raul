@@ -22,6 +22,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
 import { Request } from '@angular/http/src/static_request';
 import { DoctorProvider } from '../providers/doctor/doctor';
+import { EnfermerasProvider } from '../providers/enfermeras/enfermeras';
+import { RecepcionistaProvider } from '../providers/recepcionista/recepcionista';
+import { EnfermeraProvider } from '../providers/enfermera/enfermera';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +63,10 @@ import { DoctorProvider } from '../providers/doctor/doctor';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PacienteProvider,
-    DoctorProvider
+    DoctorProvider,
+    EnfermerasProvider,
+    RecepcionistaProvider,
+    EnfermeraProvider
   ]
 })
 export class AppModule {}

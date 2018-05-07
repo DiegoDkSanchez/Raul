@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatosPage } from '../datos/datos';
+import {EnfermeraProvider} from '../../providers/enfermera/enfermera';
+
+import { ConsultasPage } from '../consultas/consultas';
+import { AddPacientePage } from '../add-paciente/add-paciente';
+
 
 /**
  * Generated class for the EnfermerasPage page.
@@ -17,35 +22,55 @@ import { DatosPage } from '../datos/datos';
 
 export class EnfermerasPage {
   selectedItem: any;
-  nombres: string[];
-  items: Array<{title: string}>;
+  Pacientes
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  //provider
 
-    // Let's populate this page with some filler content for funzies
-    this.nombres = [
-      'Miguel Serbante Santana',
-      'Joel Castro Moliner', 
-      'Roberto Alfredo Rodriguez',
-      'Raquel Valladarez Serano',
-      'Jose Roidriguez Elevado'
-    ];
-
-    this.items = [];
-    for (let i = 0; i < this.nombres.length; i++) {
-      this.items.push({
-        title: this.nombres[i]
-      });
-    }
+  constructor(public navCtrl: NavController,public proveedor:EnfermeraProvider) {
+    this.Llenar_Pacientes()
   }
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(DatosPage, {
+    this.navCtrl.push(ConsultasPage, {
       item: item
     });
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  addPaciente(){
+    this.navCtrl.push(AddPacientePage);
+  }
+
+  ionViewDidLoad(){
+    this.Llenar_Pacientes();
+  }
+
+
+  //Suscribe
+  Llenar_Pacientes(){
+    this.proveedor.ObtenerEnfermeras().subscribe(
+      data => {
+        this.Pacientes = data;
+      });
+  }
+
+  getItems(ev){
+    var val = ev.target.value;
+    if(val&&val.trim()!=""){
+      this.Pacientes=this.Pacientes.filter((item)=>{
+        return(item.nombre.toLowerCase().indexOf(val.toLowerCase())>-1);
+      })
+    }else{
+      this.Llenar_Pacientes();
+    }
+  }
 }
