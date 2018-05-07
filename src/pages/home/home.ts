@@ -53,4 +53,15 @@ export class HomePage {
       });
   }
 
+  getItems(ev){
+    var val = ev.target.value;
+    if(val&&val.trim()!=""){
+      this.Pacientes=this.Pacientes.filter((item)=>{
+        return(item.nombre.toLowerCase().indexOf(val.toLowerCase())>-1);
+      })
+    }else{
+      this.Llenar_Pacientes();
+    }
+  }
+
 }
