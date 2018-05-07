@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>addConsulta</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Agregar Consulta</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
 
+  <ion-item>
+    <ion-label color="secondary" floating>Fecha</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="secondary" floating>Diagnostico</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="secondary" floating>Receta</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+<br>
+  <button ion-button color="secondary" full>Agregar Consulta</button>
 </ion-content>

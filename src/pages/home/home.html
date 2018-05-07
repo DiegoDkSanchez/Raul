@@ -14,6 +14,16 @@
 
 <ion-content>
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Desliza para recargar"
+          refreshingSpinner="circles"
+          refreshingText="Cargando...">
+        </ion-refresher-content>
+      </ion-refresher>
+
+    <ion-searchbar placeholder="Buscar" (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
         <button ion-item *ngFor="let item of Pacientes" (click)="itemTapped($event, item)">
           {{item.nombre}}

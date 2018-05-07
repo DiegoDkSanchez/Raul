@@ -18,6 +18,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PacienteProvider } from '../providers/paciente/paciente';
 
 import {HttpClientModule} from '@angular/common/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
+import { Request } from '@angular/http/src/static_request';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
