@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
 import { Request } from '@angular/http/src/static_request';
+import { DoctorProvider } from '../providers/doctor/doctor';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { Request } from '@angular/http/src/static_request';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PacienteProvider
+    PacienteProvider,
+    DoctorProvider
   ]
 })
 export class AppModule {}

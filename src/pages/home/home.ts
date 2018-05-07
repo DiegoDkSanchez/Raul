@@ -15,7 +15,6 @@ export class HomePage {
   Pacientes
 
   //provider
-  public informacion: {url: string, idelement: number}[]=[];
 
   constructor(public navCtrl: NavController,public proveedor:PacienteProvider) {
     this.Llenar_Pacientes()

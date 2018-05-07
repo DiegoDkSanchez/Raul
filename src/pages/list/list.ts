@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+
 import { DatosPage } from '../datos/datos';
+
+import {DoctorProvider} from '../../providers/doctor/doctor';
 
 @Component({
   selector: 'page-list',
@@ -8,26 +12,10 @@ import { DatosPage } from '../datos/datos';
 })
 export class ListPage {
   selectedItem: any;
-  nombres: string[];
-  items: Array<{title: string}>;
+  Doctores
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
-
-    // Let's populate this page with some filler content for funzies
-    this.nombres = [
-      'Dr. Orellana Argueta',
-      'Dr. Ramirez Alfaro', 
-      'Dr. Josefa Rodriguez',
-    ];
-
-    this.items = [];
-    for (let i = 0; i < this.nombres.length; i++) {
-      this.items.push({
-        title: this.nombres[i]
-      });
-    }
+  constructor(public navCtrl: NavController, public proveedor:DoctorProvider) {
+    this.Llenar_Pacientes();
   }
 
   itemTapped(event, item) {
@@ -35,5 +23,31 @@ export class ListPage {
     this.navCtrl.push(DatosPage, {
       item: item
     });
+  }
+/*
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  addPaciente(){
+    this.navCtrl.push(AddPacientePage);
+  }*/
+
+  ionViewDidLoad(){
+    this.Llenar_Pacientes();
+  }
+
+
+  //Suscribe
+  Llenar_Pacientes(){
+    this.proveedor.ObtenerDoctores().subscribe(
+      data => {
+        this.Doctores = data;
+      });
   }
 }
