@@ -17,7 +17,7 @@ export class RecepcionistaProvider {
     this.url = 'http://ec2-18-236-137-210.us-west-2.compute.amazonaws.com:2403/recepcionistas'
   }
 
-  ObtenerDoctores(){
+  ObtenerRecepcionista(){
     interface recepcionistasResponse{
       id : string;
       nombre : string;

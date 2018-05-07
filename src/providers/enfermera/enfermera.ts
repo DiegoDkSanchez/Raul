@@ -18,7 +18,7 @@ export class EnfermeraProvider {
     this.url = 'http://ec2-18-236-137-210.us-west-2.compute.amazonaws.com:2403/enfermeras/'
   }
 
-  ObtenerDoctores(){
+  ObtenerEnfermeras(){
     interface enfermerasResponse{
       id : string;
       nombre : string;

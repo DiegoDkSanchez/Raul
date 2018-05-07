@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatosPage } from '../datos/datos';
+import {RecepcionistaProvider} from '../../providers/recepcionista/recepcionista';
+
+
+
+import { ConsultasPage } from '../consultas/consultas';
+import { AddPacientePage } from '../add-paciente/add-paciente';
+
+
 
 /**
  * Generated class for the RecepcionistaPage page.
@@ -16,32 +24,45 @@ import { DatosPage } from '../datos/datos';
 })
 export class RecepcionistaPage {
   selectedItem: any;
-  nombres: string[];
-  items: Array<{title: string}>;
+  Pacientes
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  //provider
 
-    // Let's populate this page with some filler content for funzies
-    this.nombres = [
-      'Rosa Maria Guevara',
-      'Josue Rodriguez Serbante', 
-    ];
-
-    this.items = [];
-    for (let i = 0; i < this.nombres.length; i++) {
-      this.items.push({
-        title: this.nombres[i]
-      });
-    }
+  constructor(public navCtrl: NavController,public proveedor:RecepcionistaProvider) {
+    this.Llenar_Pacientes()
   }
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(DatosPage, {
+    this.navCtrl.push(ConsultasPage, {
       item: item
     });
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  addPaciente(){
+    this.navCtrl.push(AddPacientePage);
+  }
+
+  ionViewDidLoad(){
+    this.Llenar_Pacientes();
+  }
+
+
+  //Suscribe
+  Llenar_Pacientes(){
+    this.proveedor.ObtenerRecepcionista().subscribe(
+      data => {
+        this.Pacientes = data;
+      });
   }
 
 }
