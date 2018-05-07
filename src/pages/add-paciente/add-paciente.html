@@ -6,13 +6,34 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>addPaciente</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Nuevo Paciente</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-item>
+      <ion-label color="secondary" floating>Nombre:</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="secondary" floating>Direccion:</ion-label>
+      <ion-input [(ngModel)]="direccion"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label color="secondary" floating>Telefono:</ion-label>
+      <ion-input [(ngModel)]="telefono"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label color="secondary" floating>Fecha de Nacimiento</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="nacimiento"></ion-datetime>
+      </ion-item>
+  <br>
+    <button ion-button color="secondary" full (click)="agregarPaciente()">Agregar Paciente</button>
 
 </ion-content>

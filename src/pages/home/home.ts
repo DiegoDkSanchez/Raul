@@ -18,6 +18,7 @@ export class HomePage {
   public informacion: {url: string, idelement: number}[]=[];
 
   constructor(public navCtrl: NavController,public proveedor:PacienteProvider) {
+    this.Llenar_Pacientes()
   }
 
   itemTapped(event, item) {
@@ -25,6 +26,15 @@ export class HomePage {
     this.navCtrl.push(ConsultasPage, {
       item: item
     });
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   addPaciente(){
@@ -38,10 +48,9 @@ export class HomePage {
 
   //Suscribe
   Llenar_Pacientes(){
-    let todos, url, id, elementos, i;
     this.proveedor.ObtenerPacientes().subscribe(
       data => {
-        this.Pacientes = data.lista_pacientes;
+        this.Pacientes = data;
       });
   }
 
